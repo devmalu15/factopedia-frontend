@@ -1,5 +1,5 @@
 export async function fetchFacts(category) {
-  const response = await fetch('http://localhost:8080/api/category', {
+  const response = await fetch('https://factopedia-backend-production.up.railway.app/api/category', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
