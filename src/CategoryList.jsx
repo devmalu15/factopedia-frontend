@@ -573,7 +573,7 @@ const CategoryList = ({ onSelectCategory }) => {
   return (
     <div className="category-list">
       <div className="category-header">
-        <h2>Choose a Category</h2>
+        <h2>Choose a Category ({filteredCategories.length})</h2>
         <div className="category-controls">
           <input
             type="text"
