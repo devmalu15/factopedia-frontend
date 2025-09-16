@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const categories = [
   'Animals 🐾',
@@ -233,12 +233,55 @@ const categories = [
   'Kingdom of Sudan 🇸🇩'
 ];
 
+const shuffleArray = (array) => {
+  const newArray = [...array];
+  // Fisher-Yates shuffle algorithm
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
+
 const CategoryList = ({ onSelectCategory }) => {
+  const [displayedCategories, setDisplayedCategories] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  useEffect(() => {
+    setDisplayedCategories(shuffleArray(categories));
+  }, []);
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleRandomize = () => {
+    setDisplayedCategories(shuffleArray(categories));
+  };
+
+  const filteredCategories = searchTerm
+    ? displayedCategories.filter(category =>
+        category.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : displayedCategories;
+
   return (
     <div className="category-list">
-      <h2>Choose a Category</h2>
+      <div className="category-header">
+        <h2>Choose a Category</h2>
+        <div className="category-controls">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="search-bar"
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+          <button onClick={handleRandomize} className="randomize-button">Randomize 🎲</button>
+        </div>
+      </div>
       <div className="category-cards">
-        {categories.map((category) => (
+        {filteredCategories.map((category) => (
           <div
             key={category}
             className="card"

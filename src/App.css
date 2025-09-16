@@ -75,6 +75,17 @@
   .App-header h1 {
     font-size: 3rem;
   }
+
+  .category-header {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .category-controls {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
 }
 
 .App-header p {
@@ -116,10 +127,23 @@ main {
   margin: 0 auto;
 }
 
-.category-list h2 {
+.category-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 2rem;
+}
+
+.category-list h2 {
   font-size: 1.8rem;
   color: var(--header-text-color);
+  margin-bottom: 0;
 }
 
 .category-cards {
@@ -206,6 +230,39 @@ main {
 .back-button:hover {
   transform: translate(-4px, -4px);
   box-shadow: 8px 8px 0px var(--back-button-shadow-color);
+}
+
+.randomize-button {
+  background: var(--card-bg);
+  border: 3px solid var(--card-border-color);
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+  box-shadow: 4px 4px 0px var(--card-shadow-color);
+  color: var(--card-text-color);
+}
+
+.randomize-button:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px var(--card-shadow-color);
+}
+
+.search-bar {
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  border: 3px solid var(--app-border-color);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  background-color: var(--fact-item-bg);
+  color: var(--text-color);
+  transition: border-color 0.2s;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: var(--header-text-color);
 }
 
 .loader {
