@@ -39,7 +39,7 @@
   --fact-item-border-color: #9b59b6;
   --back-button-bg: #e67e22;
   --back-button-border-color: #000;
-  --back-button-shadow-color: rgba(0, 0, 0, 0);
+  --back-button-shadow-color: rgba(0, 0, 0, 0.8);
   --back-button-text-color: white;
   --text-color: #ecf0f1;
   --footer-border-color: #7f8c8d;
